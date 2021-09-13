@@ -10,10 +10,10 @@ function Gallery() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div className="Gallery-header">
             <h2>Наша галерея</h2>
         </div>
-        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div className="Gallery">
           { images }
         </div>
       </div>
