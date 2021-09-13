@@ -1,5 +1,19 @@
-// import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+
+class Header extends React.Component {    
+  constructor(props) {
+      super(props);
+  }
+
+  render() {
+    return (
+      <header className="App-header">
+        <h1>Djulia Weddings</h1>
+      </header>
+    );
+  }
+}
 
 function Gallery() {
   const array = ['1', '2', '3', '4', '5', '6']
@@ -24,9 +38,7 @@ function Gallery() {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Djulia Weddings</h1>
-      </header>
+      <Header />
       <Gallery />
     </div>
   );
