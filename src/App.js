@@ -1,5 +1,12 @@
 import './App.css';
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 class Header extends React.Component {
   render() {
@@ -11,50 +18,42 @@ class Header extends React.Component {
   }
 }
 
-function Button(props) {
-  return(
-      <button>
-        {props.value}
-      </button>
-  );
-}
-
 class Gallery extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-    // const value = "no value";
-    this.state = {
-      view: "no",
-    };
-
-    if (props.value === 1) {
-      this.state.view = 'Grid';
-    } else {
-      this.state.view = 'List';
-    }
-
-    // this.setState((state, props) => ({
-    //   value: props.value
-    // }));
-  }
-
   render() {
     const array = ['1', '2', '3', '4', '5', '6']
     const images = array.map(name => {
-      return <img key={name} src={require(`./images/${name}/1.jpg`).default} className="Img-responsive" alt={"wedding dress "+name}/>
+      return <img key={name} src={require(`./images/${name}/1.jpg`).default} className="Img" className="Img-gallery" alt={"wedding dress "+name}/>
     });
-    // console.log(images[0]);
     return (
-      <div className="container">
-        <Button value={this.state.view}/>
+      <div>
+        {/* <Button view={this.state.view} handleClick={this.handleClick.bind(this)}/> */}
+        <Link to="/list"><button>Список</button></Link>
         <div className="row">
           <div className="Gallery-header">
               <h2>Наша галерея</h2>
           </div>
-          <div className="Gallery">
-            { images }
+          {images}
+        </div>
+      </div>
+    );
+  }
+}
+
+class List extends React.Component {
+  render() {
+    const array = ['1', '2', '3', '4', '5', '6']
+    const images = array.map(name => {
+      return <img key={name} src={require(`./images/${name}/1.jpg`).default} className="Img" className="Img-list" alt={"wedding dress "+name}/>
+    });
+    return (
+      <div>
+        {/* <Button view={this.state.view} handleClick={this.handleClick.bind(this)}/> */}
+        <Link to="/gallery"><button>Галерея</button></Link>
+        <div className="row">
+          <div className="Gallery-header">
+              <h2>Наш список</h2>
           </div>
+          {images}
         </div>
       </div>
     );
@@ -65,7 +64,16 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Gallery value={1}/>
+      <Router>
+        <Switch>
+          <Route path="/gallery">
+              <Gallery />
+          </Route>
+          <Route path="/list">
+            <List />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
