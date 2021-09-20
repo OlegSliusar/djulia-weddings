@@ -6,7 +6,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -55,12 +54,8 @@ class Gallery extends React.Component {
     return (
       <div>
         <Link to="/"><button>Список</button></Link>
-        <div className="Gallery-header">
-            <h2>Наша галерея</h2>
-        </div>
-        <div className="row-3">
-          {images}
-        </div>
+        <h2>Наша галерея</h2>
+        {images}
       </div>
     );
   }
@@ -77,12 +72,8 @@ class List extends React.Component {
     return (
       <div>
         <Link to="/gallery"><button>Галерея</button></Link>
-        <div>
-          <div className="List-header">
-              <h2>Наш список</h2>
-          </div>
-          {images}
-        </div>
+        <h2>Наш список</h2>
+        {images}
       </div>
     );
   }
