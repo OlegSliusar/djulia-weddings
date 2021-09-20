@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  align-items: center;
 }
 
 .App-header {
@@ -12,6 +13,10 @@
   color: white;
 }
 
+.Img-slide {
+  max-height: 30em;
+}
+
 .Img-gallery {
   display: box;
   min-height: 2em;
@@ -22,8 +27,15 @@
   display: list-item;
   min-height: 2em;
   max-height: 15em;
+  display: 'block';
+  width: 200;
+  padding-left: 5em;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.Carousel.Caption {
+  color: black;
 }
